@@ -14,11 +14,27 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("boost");
                 break;
             case "Finish":
-                Debug.Log("Game Over, you win");
+                LoadNextLevel();
                 break;
             default:
-                SceneManager.LoadScene("Lecture3 - Balloon");
+                ReloadLevel();
                 break;
         }
     }
+
+    void ReloadLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+    void LoadNextLevel()
+         {
+             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+             int nextSceneIndex = currentSceneIndex + 1;
+             if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+             {
+                 nextSceneIndex = 0;
+             }
+             SceneManager.LoadScene(nextSceneIndex);
+         }
 }
