@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class CollisionHandler : MonoBehaviour
 {
     void OnCollisionEnter(Collision other)
@@ -15,7 +17,7 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Game Over, you win");
                 break;
             default:
-                Debug.Log("BOOOM!");
+                SceneManager.LoadScene("Lecture3 - Balloon");
                 break;
         }
     }
