@@ -1,27 +1,77 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] float levelLoadDelay = 1f;
+    [SerializeField] AudioClip impact;
+    [SerializeField] AudioClip success;
+    [SerializeField] ParticleSystem impactParticles;
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] MeshRenderer balloonRenderer;
+    
+    AudioSource audioSource;
+    
+    bool isTransitioning = false;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void OnCollisionEnter(Collision other)
     {
+        if (isTransitioning) { return; }
+        
         switch (other.gameObject.tag)
         {
             case "Friendly":
-                Debug.Log("no problem");
+                Debug.Log("Let's get to our destination");
                 break;
             case "Fuel":
+                // todo add fuel to the game
                 Debug.Log("boost");
                 break;
             case "Finish":
-                LoadNextLevel();
+                StartSuccessSequence();
                 break;
             default:
-                ReloadLevel();
+                StartCrashSequence();
                 break;
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (isTransitioning) { return; }
+        
+        StartCrashSequence();
+    }
+    void StartCrashSequence()
+    {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(impact);
+        balloonRenderer.enabled = false;
+        GetComponent<SphereCollider>().enabled = false;
+        impactParticles.gameObject.transform.SetParent(null);
+        impactParticles.Play();
+        GetComponent<Movement>().enabled=false;
+        Invoke("ReloadLevel", levelLoadDelay);
+    }
+
+    void StartSuccessSequence()
+    {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(success);
+        GetComponent<Rigidbody>().isKinematic = true;
+        successParticles.transform.rotation = Quaternion.Euler(0, 0, 0);
+        successParticles.Play();
+        GetComponent<Movement>().enabled=false;
+        Invoke("LoadNextLevel", levelLoadDelay);
+    }
     void ReloadLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
