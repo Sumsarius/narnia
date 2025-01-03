@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -34,29 +35,8 @@ public class Movement : MonoBehaviour
         {
             StopThrusting();
         }
-
+        
     }
-
-    void StopThrusting()
-    {
-        audioSource.Stop();
-        mainBoosterParticles.Stop();
-    }
-
-    void StartThrusting()
-    {
-        rb.AddRelativeForce(Vector3.up * (mainThrust * Time.deltaTime));
-        if (!audioSource.isPlaying)
-        {
-            audioSource.PlayOneShot(mainEngine);
-        }
-
-        if (!mainBoosterParticles.isPlaying)
-        {
-            mainBoosterParticles.Play();
-        }
-    }
-
     void ProcessRotation()
     {
         if (Input.GetKey(KeyCode.A))
@@ -75,5 +55,24 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = true; // freezing rotation so we can manually rotate
         transform.Rotate(Vector3.forward * (rotationThisFrame * Time.deltaTime));
         rb.freezeRotation = false; // unfreezing rotation so physics system can take over
+    }
+    void StopThrusting()
+    {
+        audioSource.Stop();
+        mainBoosterParticles.Stop();
+    }
+
+    void StartThrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * (mainThrust * Time.deltaTime));
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+
+        if (!mainBoosterParticles.isPlaying)
+        {
+            mainBoosterParticles.Play();
+        }
     }
 }
