@@ -9876,8 +9876,6 @@ MonoBehaviour:
   mainThrust: 500
   rotationThrust: 10
   mainBoosterParticles: {fileID: 8359087293113522164}
-  leftBoosterParticles: {fileID: 852286956605247972}
-  rightBoosterParticles: {fileID: 49591180899631464}
   mainEngine: {fileID: 8300000, guid: 222f98865b7214994b831a7039d7e6cf, type: 3}
 --- !u!54 &3565520396242302135
 Rigidbody:
@@ -10014,7 +10012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9615ac7eb02e845eda1f0c44cd8286eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelLoadDelay: 2
+  levelLoadDelay: 3
   impact: {fileID: 8300000, guid: f3b7a04ba851d416e938784412500b55, type: 3}
   success: {fileID: 8300000, guid: 584c45e480b9440a49dd88e83e9fddaf, type: 3}
   impactParticles: {fileID: 2771646204945690087}
@@ -14992,6 +14990,16 @@ PrefabInstance:
     - target: {fileID: 6405148554373193267, guid: 256c17849acfae441a858a1c3f805e67,
         type: 3}
       propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405148555080861348, guid: 256c17849acfae441a858a1c3f805e67,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405148555080861348, guid: 256c17849acfae441a858a1c3f805e67,
+        type: 3}
+      propertyPath: m_LightProbeUsage
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6405148555080861349, guid: 256c17849acfae441a858a1c3f805e67,
