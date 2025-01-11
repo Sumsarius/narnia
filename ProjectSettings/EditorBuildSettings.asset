@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lecture3/Level - Under.unity
     guid: 0b6427d0299b14fa4bb03e85013e60ca
+  - enabled: 1
+    path: Assets/Scenes/Lecture3/Level - Down.unity
+    guid: bdb9ed7564b274cacbf87d7a8d8b32dd
+  - enabled: 1
+    path: Assets/Scenes/Lecture3/Level - RisingDanger.unity
+    guid: a46b85d80a5aa40c18f08802feb6c6dd
+  - enabled: 1
+    path: Assets/Scenes/Lecture3/Level - Three Sizes.unity
+    guid: e6d3b131acaa340f9b652208e8bb2bef
+  - enabled: 1
+    path: Assets/Scenes/Lecture3/Level - NightTerror.unity
+    guid: e625a90eb5a674f4dad5f51af75febe6
   m_configObjects: {}
