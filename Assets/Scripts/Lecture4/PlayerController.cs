@@ -22,8 +22,16 @@ public class PlayerController : MonoBehaviour
         movement.Disable();
     }
         [SerializeField] float controlSpeed = 30f;
-        [SerializeField] private float xRange = 10f;
-        [SerializeField] private float yRange = 5f;
+        [SerializeField] float xRange = 10f;
+        [SerializeField] float yRange = 5f;
+        
+        [SerializeField] float positionPitchFactor = -2f;
+        [SerializeField] private float positionYawFactor = 2f;
+        [SerializeField] private float controlPitchFactor = -10f;
+        [SerializeField] private float controlRollFactor = -20f;
+        
+        float yThrow;
+        float xThrow;
     // Update is called once per frame
     void Update()
 
@@ -32,16 +40,23 @@ public class PlayerController : MonoBehaviour
         ProcessRotation();
     }
 
+    
     void ProcessRotation()
-
     {
-        transform.localRotation = Quaternion.Euler(-30f, 30f, 0f);
+        float pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
+        float pitchDueToRotation = yThrow * controlPitchFactor;
+        float rollDueToRotation = xThrow * controlRollFactor;
+        
+        float pitch =  pitchDueToPosition + pitchDueToRotation;
+        float yaw = transform.localPosition.x * positionYawFactor;
+        float roll = xThrow * rollDueToRotation;
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
     void ProcessTranslation()
     {
-        float xThrow = movement.ReadValue<Vector2>().x;
+        xThrow = movement.ReadValue<Vector2>().x;
         //float xThrow = Input.GetAxis("Horizontal");    
-        float yThrow = movement.ReadValue<Vector2>().y;
+        yThrow = movement.ReadValue<Vector2>().y;
         //float yThrow = Input.GetAxis("Vertical");
        
        float xOffset = xThrow * Time.deltaTime * controlSpeed;
