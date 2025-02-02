@@ -1,19 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Controller Input")]
     [SerializeField] InputAction movement;
     [SerializeField] InputAction fire;
     
-    // Start is called before the first frame update
-    void Start()
-    {
+    [Header("Movement")]
+    [Tooltip("Movement speed up and down")] 
+    [SerializeField] float controlSpeed = 30f;
+    [Tooltip("Movement cap horizontal")] 
+    [SerializeField] float xRange = 10f;
+    [Tooltip("Movement cap vertical")]
+    [SerializeField] float yRange = 5f;
+    
+    [Header("Weapons Array")]
+    [Tooltip("Add spaceship weapons")]
+    [SerializeField] private GameObject[] lasers;
+   
+    [Header("Screen position based tuning")]
+    [SerializeField] private float positionYawFactor = 2f;
+    [SerializeField] private float controlPitchFactor = -10f;
+    
+    [Header("Player input based tuning")]
+    [SerializeField] float positionPitchFactor = -2f;
+    [SerializeField] private float controlRollFactor = -20f;
         
-    }
-
+    float yThrow;
+    float xThrow;
+    
     void OnEnable()
     {
         movement.Enable();
@@ -25,18 +41,6 @@ public class PlayerController : MonoBehaviour
         fire.Disable();
     }
     
-        [SerializeField] float controlSpeed = 30f;
-        [SerializeField] float xRange = 10f;
-        [SerializeField] float yRange = 5f;
-        
-        [SerializeField] float positionPitchFactor = -2f;
-        [SerializeField] private float positionYawFactor = 2f;
-        [SerializeField] private float controlPitchFactor = -10f;
-        [SerializeField] private float controlRollFactor = -20f;
-        
-        float yThrow;
-        float xThrow;
-        
     // Update is called once per frame
     void Update()
 
@@ -79,14 +83,20 @@ public class PlayerController : MonoBehaviour
     {
         if (fire.ReadValue<float>() > .5f)
         {
-            Debug.Log("Firing...");
+            SetLasersActive(true);
         }
         else
         {
-            Debug.Log("Easy...");
+            SetLasersActive(false);
         }
-        // if pushing fire button
-        // then print "shooting"
-        // or else
+    }
+
+    void SetLasersActive(bool isActive)
+    {
+        foreach (GameObject laser in lasers)
+        {
+            var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = isActive;
+        }
     }
 }
