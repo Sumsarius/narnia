@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] InputAction movement;
+    [SerializeField] InputAction fire;
     
     // Start is called before the first frame update
     void Start()
@@ -16,11 +17,14 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {
         movement.Enable();
+        fire.Enable();
     }
     void OnDisable()
     {
         movement.Disable();
+        fire.Disable();
     }
+    
         [SerializeField] float controlSpeed = 30f;
         [SerializeField] float xRange = 10f;
         [SerializeField] float yRange = 5f;
@@ -32,15 +36,15 @@ public class PlayerController : MonoBehaviour
         
         float yThrow;
         float xThrow;
+        
     // Update is called once per frame
     void Update()
 
     {
         ProcessTranslation();
         ProcessRotation();
+        ProcessFiring();
     }
-
-    
     void ProcessRotation()
     {
         float pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
@@ -52,6 +56,7 @@ public class PlayerController : MonoBehaviour
         float roll = xThrow * rollDueToRotation;
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
+    
     void ProcessTranslation()
     {
         xThrow = movement.ReadValue<Vector2>().x;
@@ -68,5 +73,20 @@ public class PlayerController : MonoBehaviour
        float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
        
        transform.localPosition = new Vector3 (clampedXPos, clampedYPos, transform.localPosition.z);
+    }
+
+    void ProcessFiring()
+    {
+        if (fire.ReadValue<float>() > .5f)
+        {
+            Debug.Log("Firing...");
+        }
+        else
+        {
+            Debug.Log("Easy...");
+        }
+        // if pushing fire button
+        // then print "shooting"
+        // or else
     }
 }
