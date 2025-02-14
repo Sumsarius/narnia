@@ -18,7 +18,6 @@ public class CollisionHandler : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
-
     void Update()
     {
         RespondToDebugKeys();
@@ -61,7 +60,6 @@ public class CollisionHandler : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (isTransitioning || collisionDisabled) { return; }
-        
         StartCrashSequence();
     }
     void StartCrashSequence()

@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [Header("Weapons Array")]
     [Tooltip("Add spaceship weapons")]
     [SerializeField] private GameObject[] lasers;
+    [SerializeField] AudioClip lasersound;
    
     [Header("Screen position based tuning")]
     [SerializeField] private float positionYawFactor = 2f;
@@ -30,6 +31,12 @@ public class PlayerController : MonoBehaviour
     float yThrow;
     float xThrow;
     
+    AudioSource audioSource;
+    
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void OnEnable()
     {
         movement.Enable();
@@ -84,6 +91,7 @@ public class PlayerController : MonoBehaviour
         if (fire.ReadValue<float>() > .5f)
         {
             SetLasersActive(true);
+            audioSource.PlayOneShot(lasersound);
         }
         else
         {
