@@ -1226,8 +1226,8 @@ MonoBehaviour:
     type: 3}
   hitVFX: {fileID: 8393927888780647174, guid: 0777bc22e9e6ace47a89e97740ea56e9, type: 3}
   parent: {fileID: 0}
-  scorePerHit: 15
-  hitPoints: 40
+  scorePerHit: 50
+  hitPoints: 75
 --- !u!1 &6651314909466974651
 GameObject:
   m_ObjectHideFlags: 0
