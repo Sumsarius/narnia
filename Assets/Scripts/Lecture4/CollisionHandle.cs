@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,7 +25,6 @@ public class CollisionHandle : MonoBehaviour
     }
     void StartCrashSequence()
     {
-        isTransitioning = true;
         GetComponent<PlayerController>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
         shipRenderer.enabled = false;
@@ -32,9 +32,11 @@ public class CollisionHandle : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(impact);
         Invoke("ReloadLevel", levelLoadDelay);
+        //StartCoroutine(ReloadLevel());
     }
     void ReloadLevel()
     {
+        //yield return new WaitForSeconds(levelLoadDelay);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }

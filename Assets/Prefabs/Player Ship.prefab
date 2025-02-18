@@ -229,6 +229,7 @@ MonoBehaviour:
   lasers:
   - {fileID: 5260313273525168043}
   - {fileID: 8717061369690247663}
+  lasersound: {fileID: 0}
   positionYawFactor: 3
   controlPitchFactor: -10
   positionPitchFactor: -2
@@ -288,9 +289,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLoadDelay: 1
-  impact: {fileID: 0}
-  impactParticles: {fileID: 0}
-  shipRenderer: {fileID: 0}
+  impact: {fileID: 8300000, guid: 0eb9586d8b95c4535a3905d7b006fa9c, type: 3}
+  impactParticles: {fileID: 8643521839621764256, guid: 00aea7b30cdce4219b976e22fbd433c4,
+    type: 3}
+  shipRenderer: {fileID: 6571742907579314523}
 --- !u!54 &6642602429382440414
 Rigidbody:
   m_ObjectHideFlags: 0
