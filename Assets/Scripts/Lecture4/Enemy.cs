@@ -6,13 +6,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject hitVFX;
     [SerializeField] private Transform parent;
     [SerializeField] int scorePerHit = 15;
-    [SerializeField] private int hitPoints = 2;
+    [SerializeField] private int hitPoints = 10;
     
     ScoreBoard scoreBoard;
 
     void Start()
     {
         scoreBoard = FindObjectOfType<ScoreBoard>();
+        Rigidbody  rb = gameObject.AddComponent<Rigidbody>();
+        rb.useGravity = false;
     }
     private void OnParticleCollision(GameObject other)
     {
@@ -25,6 +27,8 @@ public class Enemy : MonoBehaviour
 
     private void ProcessHit()
     {
+        GameObject vfx = Instantiate(hitVFX, transform.position, Quaternion.identity);
+        vfx.transform.parent = parent;
         hitPoints--;
         scoreBoard.IncreaseScore(scorePerHit);
     }

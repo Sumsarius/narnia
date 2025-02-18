@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
         if (fire.ReadValue<float>() > .5f)
         {
             SetLasersActive(true);
-            audioSource.PlayOneShot(lasersound);
+            //audioSource.PlayOneShot(lasersound);
         }
         else
         {
