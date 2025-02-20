@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 8511320447097429351}
   - component: {fileID: 5735652092230368725}
   - component: {fileID: 7116157349235494323}
+  - component: {fileID: -3905929455438313968}
   m_Layer: 0
   m_Name: Eagle
   m_TagString: Untagged
@@ -424,6 +425,27 @@ MonoBehaviour:
   hitVFX: {fileID: 8393927888780647174, guid: 0777bc22e9e6ace47a89e97740ea56e9, type: 3}
   scorePerHit: 30
   hitPoints: 15
+--- !u!65 &-3905929455438313968
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344770423907291973}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.008005, y: 5.232236, z: 13.0688305}
+  m_Center: {x: 0, y: -0.000000834465, z: 0.000015497208}
 --- !u!1 &3547323025743144974
 GameObject:
   m_ObjectHideFlags: 0

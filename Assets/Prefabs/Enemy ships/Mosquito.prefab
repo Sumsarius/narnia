@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 302978882415045693}
   - component: {fileID: 2015749364516712071}
   - component: {fileID: 7210663793425993261}
+  - component: {fileID: -8532858496733023912}
   m_Layer: 0
   m_Name: Mosquito
   m_TagString: Untagged
@@ -744,6 +745,27 @@ MonoBehaviour:
   hitVFX: {fileID: 8393927888780647174, guid: 0777bc22e9e6ace47a89e97740ea56e9, type: 3}
   scorePerHit: 15
   hitPoints: 1
+--- !u!65 &-8532858496733023912
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299248134191578653}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.912647, y: 4.238168, z: 11.334681}
+  m_Center: {x: 0, y: -0.000000834465, z: 0.00000071525574}
 --- !u!1 &4809406363996802757
 GameObject:
   m_ObjectHideFlags: 0
