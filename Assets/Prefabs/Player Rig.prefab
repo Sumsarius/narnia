@@ -201,6 +201,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3686521570444102472}
     m_Modifications:
+    - target: {fileID: 1967916453584182856, guid: 0e64121bdbb384580a3f79e1541a9570,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967916453584182856, guid: 0e64121bdbb384580a3f79e1541a9570,
+        type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2063023168261357884, guid: 0e64121bdbb384580a3f79e1541a9570,
         type: 3}
       propertyPath: impact
@@ -216,6 +226,21 @@ PrefabInstance:
       propertyPath: impactParticles
       value: 
       objectReference: {fileID: 1883456942613307465}
+    - target: {fileID: 2682927494274482702, guid: 0e64121bdbb384580a3f79e1541a9570,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682927494274482702, guid: 0e64121bdbb384580a3f79e1541a9570,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682927494274482702, guid: 0e64121bdbb384580a3f79e1541a9570,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 3097674935271399500, guid: 0e64121bdbb384580a3f79e1541a9570,
         type: 3}
       propertyPath: m_Name
@@ -279,7 +304,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 881221847088916362, guid: 0e64121bdbb384580a3f79e1541a9570, type: 3}
     - {fileID: 3859560386991431037, guid: 0e64121bdbb384580a3f79e1541a9570, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5755959852984650524, guid: 0e64121bdbb384580a3f79e1541a9570, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3097674935271399500, guid: 0e64121bdbb384580a3f79e1541a9570,
@@ -418,6 +444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 416528558241856930, guid: 00aea7b30cdce4219b976e22fbd433c4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1321892479317553572, guid: 00aea7b30cdce4219b976e22fbd433c4,
         type: 3}

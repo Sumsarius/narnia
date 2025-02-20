@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 2231359378247112814}
   - component: {fileID: 8316382260456416087}
   - component: {fileID: 5196490627844565173}
+  - component: {fileID: 626800538490014564}
   m_Layer: 0
   m_Name: BigMac
   m_TagString: Untagged
@@ -493,7 +494,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 248508f42dcd00049925f29941b22e00, type: 2}
+  - {fileID: 2100000, guid: bccd59c329f7a11449e3220748484c14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -530,9 +531,29 @@ MonoBehaviour:
   deathVFX: {fileID: 2487952251765402218, guid: 775271e4737aedc449c957399551a577,
     type: 3}
   hitVFX: {fileID: 8393927888780647174, guid: 0777bc22e9e6ace47a89e97740ea56e9, type: 3}
-  parent: {fileID: 0}
   scorePerHit: 1000
   hitPoints: 200
+--- !u!95 &626800538490014564
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643738250746320414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3964200825581695363
 GameObject:
   m_ObjectHideFlags: 0

@@ -276,6 +276,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HCFX_Explosion_02_Air
       objectReference: {fileID: 0}
+    - target: {fileID: 4654283702912762952, guid: f134c315cba9a074aaf365efc7901d8f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spawn At Runtime
+      objectReference: {fileID: 0}
     - target: {fileID: 7394180079748081998, guid: f134c315cba9a074aaf365efc7901d8f,
         type: 3}
       propertyPath: ShapeModule.type
